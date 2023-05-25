@@ -1,5 +1,7 @@
 <?php
-    include("config.php");
+    require("config.php");
+    require("functions.php");
+
     session_start();
     
     if(!defined('ROOTURL'))
@@ -13,36 +15,27 @@
 
 $sHtml = '';
 
-//Met deze regel ga ik kijken of er een module is ingesteld
 if(!empty($_GET['module']))
 {
   $sPath = __DIR__ . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . $_GET['module'] . DIRECTORY_SEPARATOR . 'index.php';
   
   $sNavibar = include('navibar.php');
 
-    //Module inladen
     if(file_exists($sPath))
     {
-
-        // $sHtml .= 'file exists!';
         $sHtml .= include($sPath);
-
     }
     else
     {
         $sHtml .= 'error, no module found!';
     }
-
-    //print_r($sPath);
 }
 
 else
 {
     $sHtml .='error, no module found!';
 }
-
-echo $sHtml;
-
+    echo $sHtml;
 ?>
 
 <!DOCTYPE html>

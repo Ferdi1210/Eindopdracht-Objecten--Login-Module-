@@ -5,7 +5,7 @@
     define('HOSTNAME', 'localhost');
     define('USERNAME', 'root');
     define('PASSWORD', '');
-    define('DATABASE', 'Eindopdracht-LoginModule');
+    define('DATABASE', 'eindopdracht-loginmodule');
 
     $oConnection = mysqli_connect(HOSTNAME, USERNAME, PASSWORD, DATABASE);
     global $oConnection;

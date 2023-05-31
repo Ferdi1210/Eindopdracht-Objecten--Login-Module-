@@ -1,11 +1,7 @@
 <?php
 
 return '
-    <html>
-    <head>
-        <title>Login Page</title>
-    </head>
-        <body>
+ 
         <h1>Login here</h1>
 
         <form method="post" action="' . ROOTURL . '?module=account">
@@ -14,6 +10,5 @@ return '
             <input type="submit" name="login" class="button" value="Login">
         </form> 
 
-        </body>
-    </html>';
+    ';
 ?>

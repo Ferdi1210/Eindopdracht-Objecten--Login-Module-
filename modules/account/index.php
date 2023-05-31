@@ -1,19 +1,23 @@
 <?php
-return '
-    <html>
-        <head>
-            <title>Login Page</title>
-        </head>
-        
-        <body>
-            <h1>Succesfully logged in</h1>
-            
-        <form method="post" action="' . ROOTURL . '?module=login">
-            <input type="submit" name="logout" class="button" value="Log out" ></a>  
-        </form>
-        
-        
-            </body>
-    
-    </html>';
+$accountContent = '';
+
+if(!empty($_GET['view']))
+{
+    $sPath = __DIR__ . DIRECTORY_SEPARATOR . $_GET['view'] . '.php';
+
+    if(file_exists($sPath))
+    {
+        $accountContent .= include($sPath);
+    }
+    else
+    {
+        $accountContent .= '</br>error, no module found!';
+    }
+}
+else
+{
+    $accountContent .='</br>error, no module found!';
+}
+
+return($accountContent);
 ?>

@@ -16,7 +16,8 @@ if(!empty($_GET['view']))
 }
 else
 {
-    $accountContent .='</br>error, no module found!';
+    $sPath = __DIR__ . DIRECTORY_SEPARATOR . 'login.php';
+    $accountContent .= include($sPath);
 }
 
 return($accountContent);

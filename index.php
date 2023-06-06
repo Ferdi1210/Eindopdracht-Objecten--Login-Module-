@@ -1,17 +1,19 @@
 <?php
     require("config.php");
     require("functions.php");
-
+    
+    require_once("account.class.php");
+    
     session_start();
     
     if(!defined('ROOTURL'))
     {
         define('ROOTURL' , 'http://schoolwerk.nl/GIT-HUB/Eindopdracht-PHP-LoginModule/Eindopdracht-LoginModule/'); 
     }
-    if(!isset($_GET['module']))
-    {
-        $_GET['module'] = 'login';
-    }
+    // if(!isset($_GET['module']))
+    // {
+    //     $_GET['module'] = 'login';
+    // }
 
 $sHtml = '';
 $sNavibar = include('navibar.php');
@@ -31,9 +33,10 @@ if(!empty($_GET['module']))
 }
 else
 {
-    $sHtml .='error, no module found!';
+    $sPath = __DIR__ . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . 'account' . DIRECTORY_SEPARATOR . 'index.php';
+    $sHtml .= include($sPath);
 }
-    
+    echo 'hello world';
 ?>
 
 <!DOCTYPE html>

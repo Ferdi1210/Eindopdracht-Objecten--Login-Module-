@@ -1,7 +1,7 @@
 <?php
 return '
     <div class="navibar"> 
-        <a href="' . ROOTURL . '?module=login">Login</a>
-        <a href="' . ROOTURL . '?module=register">Register</a>  
+        <a href="' . ROOTURL . '?module=account&view=login">Login</a>
+        <a href="' . ROOTURL . '?module=account&view=register">Register</a>  
     </div>';
 ?>

@@ -1,23 +1,21 @@
 <?php
-
     class db
     {
+
         public $oConnection = null; // $this->oConnection
 
-        public function __construct($dbHost = false, $dbName = false, $dbUser = false, $dbPass = '')
+        public function __construct()
         {
-            if(!empty($dbHost) && !empty($dbUser) && !empty($dbName))
+            if(!empty(HOSTNAME) && !empty(USERNAME) && !empty(DATABASE))
             {
-                $this->oConnection = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
+                $this->oConnection = new mysqli(HOSTNAME, USERNAME, PASSWORD, DATABASE);
             }
-            
             if(!empty($this->oConnection->connect_error))
             {
                 $sError = 'Databaseconnection unsuccesfull: ' . $this->oConnection->connect_error;
                 echo $sError;
                 die ('ACCESSING DB WITHOUT ENOUGH INFORMATION');
             }
-
             if(empty($this->oConnection))
             {
                 die('DATABASE IS NULL');

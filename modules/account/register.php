@@ -1,12 +1,13 @@
 <?php
-
+$instanceofDbClass = new db();
 if(isset($_GET['page'])) {
     if($_GET['page'] == 'send'){
-      otherQuery("INSERT INTO `register`(`username`, `password`, `firstname`, `lastname`, `mail`) VALUES ('".$_POST['username']."',PASSWORD('".$_POST['password']."'),'".$_POST['firstname']."','".$_POST['password']."','".$_POST['mail']."');");
+      $instanceofDbClass->execute("INSERT INTO `register`(`username`, `password`, `firstname`, `lastname`, `mail`) VALUES ('".$_POST['username']."',PASSWORD('".$_POST['password']."'),'".$_POST['firstname']."','".$_POST['lastname']."','".$_POST['mail']."');");
       
       $sMessage = '<div>Formulier is succesvol verzonden</div>';
     }
   }
+  
 return '
       <h1>Register here</h1>
         <form action="' . ROOTURL . '?module=account&view=register&page=send" method="post">

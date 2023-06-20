@@ -1,8 +1,7 @@
 <?php
-    require("config.php");
-    require("functions.php");
-    
+    require_once('config.php');
     require_once("account.class.php");
+    require("db.class.php");
     
     session_start();
     
@@ -17,7 +16,8 @@
 
 $sHtml = '';
 $sNavibar = include('navibar.php');
-
+$accountObj = new account();
+$accountObj->userLogin();
 if(!empty($_GET['module']))
 {
     $sPath = __DIR__ . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . $_GET['module'] . DIRECTORY_SEPARATOR . 'index.php';
@@ -36,7 +36,7 @@ else
     $sPath = __DIR__ . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . 'account' . DIRECTORY_SEPARATOR . 'index.php';
     $sHtml .= include($sPath);
 }
-    echo 'hello world';
+    // echo 'hello world';
 ?>
 
 <!DOCTYPE html>

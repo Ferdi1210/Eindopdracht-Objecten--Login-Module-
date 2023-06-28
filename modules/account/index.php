@@ -1,5 +1,6 @@
 <?php
 $accountContent = '';
+$account = new account();
 
 if(!empty($_GET['view']))
 {

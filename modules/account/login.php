@@ -1,5 +1,15 @@
 <?php
 
+if(isset($_POST['login'])){
+    var_dump($_POST);
+    
+    $account->userLogin($_POST['Username'], $_POST['Password']);
+   
+}
+
+
+
+
 // $sql = "SELECT username, password FROM register AND password = '$password'";
 // $query = mysqli_query($connect, $sql); 
 

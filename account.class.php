@@ -2,30 +2,39 @@
 
     class account
     {
-        public $accountDbObj = null;
         private $userId = null;
         public $result = null;
 
         public function __construct()
         {
-            $this->accountDbObj = new db();
-
+            // $this->accountDbObj = new db();
         }
     
-        public function userLogin()
+        public function userLogin($Username, $Password)
         {
-            if(!empty($_POST)){
-                if(isset($_POST['Username']) && isset($_POST['Password'])){
-                    $this->result = $this->accountDbObj->execute("SELECT * FROM `register` WHERE username = '" . $_POST['Username'] . "' AND password = PASSWORD('" . $_POST['Password'] . "');");
-                    if(!empty($this->result)){
-                        // return
+            if(!empty($Username) && !empty($Password))
+            {
+                $sql = "SELECT * FROM register WHERE username = '$Username';";
+                $results = db::execute($sql);
+                var_dump($results);
+
+                if(!empty($results[0])){
+                    var_dump($results[0]);
+                    $dbPassword = $results[0]['password'];
+                    var_dump($dbPassword);
+                    
+                    if(password_verify($Password, $dbPassword)){
+                        //Wachtwoord klopt
+                        var_dump(true); 
                     }
-                } else {
-                    // echo 'test';
+                    else{
+                        //Wachtwoord incorrect
+                        var_dump(false);
+                    }
                 }
-            }
+            }          
         }    
-    
+     
         public function isUserLoggedIn()
         {
 

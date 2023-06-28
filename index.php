@@ -1,10 +1,11 @@
 <?php
     require_once('config.php');
-    require_once("account.class.php");
-    require("db.class.php");
-    
+    require_once("db.class.php");
+    require_once("functions.php");
+    db::connect();
     session_start();
-    
+    require_once("account.class.php");
+       
     if(!defined('ROOTURL'))
     {
         define('ROOTURL' , 'http://schoolwerk.nl/GIT-HUB/Eindopdracht-PHP-LoginModule/Eindopdracht-LoginModule/'); 
@@ -16,8 +17,6 @@
 
 $sHtml = '';
 $sNavibar = include('navibar.php');
-$accountObj = new account();
-$accountObj->userLogin();
 if(!empty($_GET['module']))
 {
     $sPath = __DIR__ . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . $_GET['module'] . DIRECTORY_SEPARATOR . 'index.php';

@@ -32,7 +32,9 @@
                         var_dump(false);
                     }
                 }
-            }          
+            }    
+            
+            return false;
         }    
      
         public function isUserLoggedIn()

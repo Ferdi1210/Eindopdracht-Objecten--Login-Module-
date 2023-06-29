@@ -36,7 +36,9 @@
             // Bekijk of in de $query een SELECT bevat.
             if(strpos($query, 'SELECT') !== false)
             {
-                $result = $result->fetch_all();
+                $result = $result->fetch_all(MYSQLI_ASSOC);
+                //$result = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
             }
 
             return $result;

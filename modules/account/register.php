@@ -12,11 +12,18 @@ if(isset($_POST['register']))
 (`username`, `password`, `firstname`, `lastname`, `mail`) 
 VALUES
 ('".$_POST['username']."','".$hashedPassword."','".$_POST['firstname']."','".$_POST['lastname']."','".$_POST['mail']."');");
-
-      if($result)
-      {
-        $sMessage = '<div>Formulier is succesvol verzonden</div>';
-      }
+        if($result)
+        {
+          $sMessage = '<div>Succesvol geregistreerd</div>';
+        }
+        else
+        {
+          $sMessage = '<div>Niet succesvolle registratie, de gegevens zijn niet opgeslagen.</div>';
+        }
+    }
+    else
+    {        
+      $sMessage = '<div>Niet succesvolle registratie, niet alle velden zijn volledig ingevuld.</div>';
     }
 }
   

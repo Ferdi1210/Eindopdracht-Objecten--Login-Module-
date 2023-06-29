@@ -1,10 +1,17 @@
 <?php
-
+$sMessage = '';
 if(isset($_POST['login'])){
-    var_dump($_POST);
     
-    $account->userLogin($_POST['Username'], $_POST['Password']);
-   
+    $result = $account->userLogin($_POST['Username'], $_POST['Password']);
+
+    if($result)
+    {
+        $sMessage = '<div>Succesvol ingelogd</div>';
+    }
+    else
+    {
+        $sMessage = '<div>Gegevens komen niet overeen.</div>';
+    }
 }
 
 
@@ -15,7 +22,7 @@ if(isset($_POST['login'])){
 
 return '
     <h1>Login here</h1>
-
+    ' . $sMessage . '
     <form method="post" action="' . ROOTURL . '?module=account">
         <input type="username" name="Username" placeholder="Username" required><br>
         <input type="password" name="Password" placeholder="Password" required><br><br>

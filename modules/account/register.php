@@ -14,8 +14,16 @@ VALUES
 ('".$_POST['username']."','".$hashedPassword."','".$_POST['firstname']."','".$_POST['lastname']."','".$_POST['mail']."');");
         if($result)
         {
-          $sMessage = '<div>Formulier is succesvol verzonden</div>';
+          $sMessage = '<div>Succesvol geregistreerd</div>';
         }
+        else
+        {
+          $sMessage = '<div>Niet succesvolle registratie, de gegevens zijn niet opgeslagen.</div>';
+        }
+    }
+    else
+    {        
+      $sMessage = '<div>Niet succesvolle registratie, niet alle velden zijn volledig ingevuld.</div>';
     }
 }
   

@@ -1,8 +1,17 @@
 <?php
-return '
-    <h1>Succesfully logged in</h1>      
-    <form method="post" action="' . ROOTURL . '?module=login">
-        <input type="submit" name="logout" class="button" value="Log out" ></a>  
-    </form>
+
+    if(account::isUserLoggedIn())
+    {
+        $aUser = account::getUser();
+        var_dump($aUser);
+    }
+    else
+    {
+    
+        return '
+    <h1>Ga naar de login pagina</h1>      
+    <a href="' . ROOTURL . '?module=login">Login Page</a>
 ';
+    }
+
 ?>

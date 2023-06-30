@@ -45,12 +45,6 @@
                 return false;
             }
         }
-    
-
-
-
-
-
 
         public function registerUser()
         {
@@ -60,6 +54,23 @@
         public function logoutUser()
         {
 
+        }
+
+        public static function getUser()
+        {
+            if(self::isUserLoggedIn())
+            {
+                $userId = $_SESSION['userId'];
+                $sql = "SELECT * FROM `register` WHERE `id` = '$userId';";
+                $results = db::execute($sql);
+
+                if(!empty($results[0]))
+                {
+                    return $results[0];
+                }
+            }
+
+            return false;
         }
     }
 

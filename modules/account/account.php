@@ -10,7 +10,7 @@
     
         return '
     <h1>Ga naar de login pagina</h1>      
-    <a href="' . ROOTURL . '?module=login">Login Page</a>
+    <a href="' . ROOTURL . '?module=account&view=login">Login Page</a>
 ';
     }
 

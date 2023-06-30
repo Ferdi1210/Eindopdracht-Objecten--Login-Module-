@@ -6,7 +6,7 @@
 
         public static function connect()
         {
-            if(!empty(HOSTNAME) && !empty(USERNAME) && !empty(DATABASE))
+            if(defined('HOSTNAME') && defined('USERNAME') && defined('DATABASE'))
             {
                 self::$oConnection = new mysqli(HOSTNAME, USERNAME, PASSWORD, DATABASE);
             }

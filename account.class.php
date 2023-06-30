@@ -46,20 +46,20 @@
             }
         }
     
-
-
-
-
-
-
         public function registerUser()
         {
 
         }
     
-        public function logoutUser()
+        public static function logoutUser()
         {
-
+            if(self::isUserLoggedIn())
+            {
+                unset($_SESSION['userId']);
+                return true;
+            }
+            
+            return false;
         }
     }
 

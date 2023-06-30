@@ -22,6 +22,13 @@
                     
                     if(password_verify($Password, $dbPassword)){
                         //Wachtwoord klopt
+                        $_SESSION['userId'] = $results[0]['id'];
+                        var_dump($_SESSION);
+
+
+
+                        var_dump($results[0]);
+                        exit;
                         return true; 
                     }
                 }

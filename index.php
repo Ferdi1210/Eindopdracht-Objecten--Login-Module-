@@ -16,7 +16,6 @@
     // }
 
 $sHtml = '';
-$sNavibar = include('navibar.php');
 if(!empty($_GET['module']))
 {
     $sPath = __DIR__ . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . $_GET['module'] . DIRECTORY_SEPARATOR . 'index.php';
@@ -35,14 +34,15 @@ else
     $sPath = __DIR__ . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . 'account' . DIRECTORY_SEPARATOR . 'index.php';
     $sHtml .= include($sPath);
 }
-    // echo 'hello world';
+
+$sNavibar = include('navibar.php');
+
 ?>
 
 <!DOCTYPE html>
 <html>
-    <head>
-
-    </head>
+    <head></head>
+    
     <body>
         <?php echo $sNavibar; ?>
   

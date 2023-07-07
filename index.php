@@ -2,7 +2,7 @@
 
   if(!defined('ROOTURL'))
   {
-      define('ROOTURL' , 'http://schoolwerk.nl/FCRodeRaketten/'); //Met deze URL maak je het vast op de ROOTURL
+      define('ROOTURL' , 'http://schoolwerk.nl/GIT-HUB/Eindopdracht-PHP-LoginModule/Eindopdracht-LoginModule/'); //Met deze URL maak je het vast op de ROOTURL
   }
   if(!isset($_GET['module']))
   {

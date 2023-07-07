@@ -1,47 +1,32 @@
-<?php
-
-  if(!defined('ROOTURL'))
-  {
-      define('ROOTURL' , 'http://schoolwerk.nl/GIT-HUB/Eindopdracht-PHP-LoginModule/Eindopdracht-LoginModule/'); //Met deze URL maak je het vast op de ROOTURL
-  }
-  if(!isset($_GET['module']))
-  {
-      $_GET['module'] = 'home';
-  }
-
+    require_once('config.php');
+    require_once("db.class.php");
+    require_once("functions.php");
+    db::connect();
+    session_start();
+    require_once("account.class.php");
 $sHtml = '';
-//echo include($sPath);
-//var_dump($_GET);
-
-//Met deze regel ga ik kijken of er een module is ingesteld
 if(!empty($_GET['module']))
 {
-  $sPath = __DIR__ . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . $_GET['module'] . DIRECTORY_SEPARATOR . 'index.php';
+    $sPath = __DIR__ . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . $_GET['module'] . DIRECTORY_SEPARATOR . 'index.php';
 
-    //Module inladen
     if(file_exists($sPath))
     {
-
-        // $sHtml .= 'file exists!';  
         $sHtml .= include($sPath);
-
     }
     else
     {
         $sHtml .= 'error, no module found!';
     }
-
-    //print_r($sPath);
 }
 else
-  {
-      $sHtml .='error, no module found!';
-  }
+{
+    $sPath = __DIR__ . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . 'account' . DIRECTORY_SEPARATOR . 'index.php';
+    $sHtml .= include($sPath);
+}
 
-  $sNavibar = include('navibar.php');
+$sNavibar = include('navibar.php');
 
 ?>
-<!DOCTYPE html>
 
 <html>
   <head>
@@ -65,3 +50,7 @@ else
 
   </body>
 </html>
+  if(!isset($_GET['module']))
+  {
+      $_GET['module'] = 'home';
+  }

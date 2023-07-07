@@ -1,6 +1,10 @@
 <?php
-$navibar = '
-    <div class="navibar"> ';
+
+    $navibar = '
+    <div class="navibar"> 
+        <a href="' . ROOTURL . '?module=home">Home</a> 
+        <a href="' . ROOTURL . '?module=contact">Contact</a>
+        <a href="' . ROOTURL . '?module=teams">Teams</a>';
 
     if(account::isUserLoggedIn()){
         $navibar .= '
@@ -14,7 +18,9 @@ $navibar = '
     }
 
     $navibar .= '
+        <img src="' . ROOTURL . 'FcLogoName.PNG" class="logo1">
     </div>';
 
     return $navibar;
+
 ?>

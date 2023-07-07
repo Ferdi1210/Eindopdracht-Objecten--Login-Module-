@@ -1,10 +1,19 @@
-    require_once('config.php');
-    require_once("db.class.php");
-    require_once("functions.php");
-    db::connect();
-    session_start();
-    require_once("account.class.php");
+<?php  
+
+require_once('config.php');
+require_once("db.class.php");
+require_once("functions.php");
+db::connect();
+session_start();
+require_once("account.class.php");
+    
+if(!isset($_GET['module']))
+{
+    $_GET['module'] = 'home';
+}
+
 $sHtml = '';
+
 if(!empty($_GET['module']))
 {
     $sPath = __DIR__ . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . $_GET['module'] . DIRECTORY_SEPARATOR . 'index.php';
@@ -50,7 +59,3 @@ $sNavibar = include('navibar.php');
 
   </body>
 </html>
-  if(!isset($_GET['module']))
-  {
-      $_GET['module'] = 'home';
-  }
